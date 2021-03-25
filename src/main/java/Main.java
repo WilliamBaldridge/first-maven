@@ -12,15 +12,15 @@ public class Main {
 
         String userInput = sc.nextLine();
 
-        boolean userInputNumeric = StringUtils.isNumeric(userInput);
+//        boolean userInputNumeric = StringUtils.isNumeric(userInput);
         String userInputFlipped = StringUtils.swapCase(userInput);
         String userInputReversed = StringUtils.reverse(userInput);
 
-        if (!userInputNumeric) {
-            System.out.printf("\"%s\" is not a number %n", userInput);
-        } else {
-            System.out.printf("You entered: %s %n", userInput);
-        }
+//        if (!userInputNumeric) {
+//            System.out.printf("\"%s\" is not a number %n", userInput);
+//        } else {
+//            System.out.printf("You entered: %s %n", userInput);
+//        }
 
 
 
@@ -29,12 +29,16 @@ public class Main {
 
 
         String newString = String.format("""
-                Is input numeric: %s
+                %s %s
                 Input with case flipped: %s
                 Input reversed: %s
-                """, userInputNumeric, userInputFlipped, userInputReversed);
+                """, userInput, returnNumMessage(userInput), userInputFlipped, userInputReversed);
         System.out.println(newString);
 
+    }
+
+    public static String returnNumMessage(String input) {
+        return (StringUtils.isNumeric(input) ? "is a number" : "is not a number");
     }
 
 }
